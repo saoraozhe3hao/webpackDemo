@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//<%= htmlWebpackPlugin.options.env %>.fspage.com" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>纷享逍客</title>
+<script type="text/javascript">
+var __embedAssets = !/embed=(\d)/.test(location.search) || RegExp.$1 === '1';
+/*var __embedAssets = 0;*/
+var __remUrl = __embedAssets ? '<%= htmlWebpackPlugin.options.embedRem %>' : '<%= htmlWebpackPlugin.options.rem %>';
+document.write('<script src="' + __remUrl + '"><' + '/script>');
+</script>
+</head>
+<body>
+<div id="warbreiefContainer"></div>
+<script src="<%= htmlWebpackPlugin.options.jsapi %>"></script>
+<script type="text/javascript">
+try {
+	document.domain = location.hostname.split(".").slice(-2).join(".");
+} catch (e) {console.log(e)}
+var __vendorUrl = __embedAssets ? '<%= htmlWebpackPlugin.options.embedVendor %>' : '<%= htmlWebpackPlugin.options.vendor %>';
+document.write('<script src="' + __vendorUrl + '"><' + '/script>');
+</script>
+</body>
+</html>

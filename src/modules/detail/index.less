@@ -1,0 +1,107 @@
+@import '~style/variables.less';
+.award-dialog.h5-g-dialog{
+	.size(640px,720px);
+	background:#c8403c;
+	.dialog-header{
+		padding:0;
+		.size(640px,126px);
+		background:url(./images/hb_bg.png) no-repeat;
+		background-size: 100% 100%;
+		.fontsize(40px);
+		color:#fff;
+		.px2rem(line-height;126px);
+	}
+	.icon-hb-close{
+		position:absolute;
+		.px2rem(top;-20px);
+		.px2rem(right;-24px);
+	}
+	.dialog-content{
+		padding:0;
+		.px2rem(padding-top;22px);
+		.inner{
+			max-height:1000px;
+		}
+		.avatar-list{
+			.px2rem(width;500px);
+			margin:0 auto;
+			display:flex;
+			justify-content:center;
+			.avatar-item{
+				flex:1;
+				.img-box{
+					.size(128px,128px);
+					margin:0 auto;
+					position:relative;
+					.icon{
+						display:none;
+						position:absolute;
+						.px2rem(top;4px);
+						.px2rem(right;-4px);
+						&.icon-avatar-select{
+							display:block;
+						}
+					}
+				}
+				img{
+					.size(120px,120px);
+					.border-radius(120px);
+					.px2rem(border-width;4px);
+					border:solid transparent; 
+				}
+				.name{
+					color:#de8c8a;
+					margin: 0 auto;
+					.fontsize(28px);
+					.px2rem(width;140px);
+					.px2rem(margin-top;10px);
+					.text-overflow();
+				}
+				.money{
+					color:#de8c8a;
+					.px2rem(margin-top;10px);
+					.fontsize(32px);
+				}
+				&.active{
+					img{
+						border-color:#FFDD00; 
+					}
+					.icon-avatar-selected{
+						display:block;
+					}
+					.name{
+						color:#fff;
+					}
+					.money{
+						color:#fff;
+					}
+				}
+			}
+		}
+		.refresh-money{
+			position:relative;
+			.icon{
+				position:absolute;
+				.px2rem(left;235px);
+				.px2rem(top;5px);
+			}
+			.fontsize(28px);
+			color:#ffd20b;
+			.px2rem(margin-top;50px);
+			.px2rem(margin-bottom;50px);
+			.px2rem(text-indent;10px);
+		}
+		.award-btn{
+			.size(156px,156px);
+			background:url(./images/hb_btn_tip.png) no-repeat;
+			background-size: contain;
+			margin:0 auto;
+			.px2rem(line-height;156px);
+			.fontsize(44px);
+			color:#d62823;
+			&.disable{
+				color:#D6AE5E;
+			}
+		}
+	}
+}
