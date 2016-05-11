@@ -1,52 +1,42 @@
-require('assets/style/reset.css');
-require('modules/interceptor');
+// 一切皆模块，这里引入 less
 require('./index.less');
 
-// 初始化App的相关模块引入
-require('libs/fastclick-attach');
-// require('libs/touch-scroll');
-
-// 引入数据采集模块
-let collector = require('libs/collector');
-// 混入数据采集的配置项：项目Id、需要采集的api接口列表
-_.extend(collector, require('mixins/collector'));
-
+// 引入react
 let React = require('react');
+let ReactDOM = require('react-dom');
+// 引入react 路由
 let reactRouter = require('react-router');
 let Router = reactRouter.Router;
 let Route = reactRouter.Route;
 let IndexRoute = reactRouter.IndexRoute;
 let hashHistory = reactRouter.hashHistory;
-let renderApp = require('libs/apprender');
-let PageNew = require('pages/new');
-let PageWar = require('pages/war');
-let PageWarTpl = require('pages/war/tpl');
-let PageTplSelect = require('pages/tpl-select');
-let PageWars = require('pages/wars');
+// 引入组件
+let List = require('./modules/list');
+let Detail = require('./modules/detail');
 
+// 顶层组件
 const App = React.createClass({
-    render: function() {
+    render: function () {
         return (
-            <section className="warbreief-app">
+            <section className="app">
+                <div><a href='#'>List</a></div>
+                <div><a href='#/detail'>Detail</a></div>
                 {this.props.children}
             </section>
         );
     }
 });
 
-
-
-// 渲染App，参数：(appName, router, container)
-renderApp(
-    'warbreief',
+// 渲染
+ReactDOM.render(
     <Router history={hashHistory}>
+        {/* 根路由，及其对应的组件。里面是其嵌套的路由（子路由） */}
         <Route path="/" component={App}>
-            <IndexRoute component={PageWars} />
-            <Route path="/new" component={PageNew} />
-            <Route path="/war" component={PageWar} />
-            <Route path="/wartpl" component={PageWarTpl} />
-            <Route path="/tpl_select" component={PageTplSelect} />
+            {/* 默认子路由，及其对应的组件 */}
+            <IndexRoute component={List}/>
+            {/* 子路由，及其对应的路径和组件 */}
+            <Route path="/detail" component={Detail}/>
         </Route>
     </Router>,
-    'warbreiefContainer'
+    document.getElementById('container')
 );

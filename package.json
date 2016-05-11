@@ -1,13 +1,13 @@
 {
-  "name": "warbreief",
+  "name": "webpackDemo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --progress --colors --display-error-details --watch --debug",
-    "product": "webpack --progress --profile --colors --display-error-details"
+    "product": "webpack --progress --colors --display-error-details  --profile"
   },
-  "author": "luoying",
+  "author": "hzq",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^6.3.4",

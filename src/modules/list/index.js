@@ -1,11 +1,11 @@
 require('./index.less');
 let React = require('react');
 
-let Detail = React.createClass({
+let List = React.createClass({
         render: function () {
             return (
-                <h1 className='detail'>
-                   detail
+                <h1 className='list'>
+                    list
                 </h1>
             )
         },
@@ -18,4 +18,4 @@ let Detail = React.createClass({
     }
 );
 
-module.exports = Detail;
+module.exports = List;
