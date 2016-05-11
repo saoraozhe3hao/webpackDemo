@@ -11,10 +11,10 @@ let path = require('path'),
 let args = process.argv;
 // 判断命令参数里有没有 --debug
 const DEBUG = args.indexOf('--debug') >= 0;
-// 确定目标目录
+// 确定目录
 let dist = path.resolve(__dirname, './', DEBUG ? 'dev/':'product/');
-// 移动 lib index.html 等
 let src = path.resolve(__dirname);
+// 移动 lib index.html 等
 copy(src,dist);
 
 // webpack 配置

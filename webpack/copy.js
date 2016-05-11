@@ -78,4 +78,5 @@ module.exports = function (src,dist) {
     let lib = path.resolve(src, dist, 'lib/')
     fs.mkdirSync(lib);
     copyFolder(path.resolve(src, './', 'lib/'), lib, copyFiles);
+    
 };
