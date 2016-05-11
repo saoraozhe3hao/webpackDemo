@@ -6,6 +6,7 @@ let Detail = React.createClass({
             return (
                 <h1 className='detail'>
                    detail
+                    <div className='detail-img'></div>
                 </h1>
             )
         },
