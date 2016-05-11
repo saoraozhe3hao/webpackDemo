@@ -1,13 +1,23 @@
 'use strict';
 
-let path = require('path');
-let webpack = require('webpack');
-let ExtractTextPlugin = require("extract-text-webpack-plugin");
+let path = require('path'),
+    fs = require('fs'),
+    stat = fs.stat,
+    webpack = require('webpack'),
+    ExtractTextPlugin = require("extract-text-webpack-plugin"),
+    copy = require('./webpack/copy');
+
 // 获取命令参数，命令写在package.json中
 let args = process.argv;
 // 判断命令参数里有没有 --debug
 const DEBUG = args.indexOf('--debug') >= 0;
+// 确定目标目录
+let dist = path.resolve(__dirname, './', DEBUG ? 'dev/':'product/');
+// 移动 lib index.html 等
+let src = path.resolve(__dirname);
+copy(src,dist);
 
+// webpack 配置
 module.exports = {
     // 入口文件
     entry: {
@@ -23,7 +33,7 @@ module.exports = {
     // 输出
     output: {
         // 输出目录
-        path: path.resolve(__dirname, './', DEBUG ? 'dev/':'product/'),
+        path: dist,
         // 被引用时 填写的目录
         publicPath: '/webpackDemo/dev/',
         // 输出文件名
@@ -44,7 +54,7 @@ module.exports = {
 
     // 语法检查配置
     eslint: {
-        configFile: './.eslintrc',
+        configFile: './webpack/.eslintrc',
         emitError: true,
         emitWarning: true,
         failOnError: true
