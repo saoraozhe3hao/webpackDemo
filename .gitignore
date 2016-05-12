@@ -4,3 +4,5 @@ build
 product
 npm-debug.log
 .idea
+webpack-dist
+gulp-dist

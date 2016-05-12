@@ -12,10 +12,13 @@ let args = process.argv;
 // 判断命令参数里有没有 --debug
 const DEBUG = args.indexOf('--debug') >= 0;
 // 确定目录
-let dist = path.resolve(__dirname, './', DEBUG ? 'dev/':'product/');
+let dist = path.resolve(__dirname, './', 'webpack-dist/');
 let src = path.resolve(__dirname);
-// 移动 lib index.html 等
-copy(src,dist);
+// 复制 lib index.html 等
+// 用webpack命令的话 用 copy 模块复制；用gulp的话，就用gulp复制
+if(DEBUG){
+    copy(src,dist);
+}
 
 // webpack 配置
 module.exports = {
@@ -35,7 +38,7 @@ module.exports = {
         // 输出目录
         path: dist,
         // 被引用时 填写的目录
-        publicPath: '/webpackDemo/dev/',
+        publicPath: dist,
         // 输出文件名
         filename: '[name].js',
         sourceMapFilename: '[file].map',
