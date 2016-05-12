@@ -2,5 +2,7 @@
    npm install -g webpack
 2、安装依赖模块
   npm install
-3、打包并监听,具体命令在 package.json 中
+3、用webpack命令打包并监听,具体命令在 package.json 中
   npm run dev
+4、或者用gulp命令打包并监听
+  gulp default
