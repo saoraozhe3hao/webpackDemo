@@ -37,7 +37,7 @@ module.exports = {
     output: {
         // 输出目录
         path: dist,
-        // 被引用时 填写的目录
+        // 公共资源路径
         publicPath: dist,
         // 输出文件名
         filename: '[name].js',
