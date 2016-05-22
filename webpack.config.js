@@ -38,7 +38,7 @@ module.exports = {
         // 输出目录
         path: dist,
         // 公共资源路径
-        publicPath: dist,
+        publicPath: 'http://localhost:63342/webpackDemo/webpack-dist/',
         // 输出文件名
         filename: '[name].js',
         sourceMapFilename: '[file].map',

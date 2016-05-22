@@ -3,8 +3,7 @@ let React = require('react');
 
 let List = React.createClass({
         getInitialState: function () {
-            return {
-            };
+            return {};
         },
         render: function () {
             return (
