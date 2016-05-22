@@ -51,11 +51,11 @@ const App = React.createClass({
             id: 0
         };
     },
-    // 更新 state
+    // 更新 state，并通过参数向下传递
     handleChange: function () {
         console.log(this.refs.nameInput.value);
         this.setState({
-            id:this.refs.nameInput.value //通过 ref 获得指定元素，通过 getDOMNode() 获取真实DOM
+            id:this.refs.nameInput.value //通过 ref 获得指定元素
         })
     }
 });
@@ -74,6 +74,12 @@ let Sub = React.createClass({
             return {
                 id: 99
             };
+        },
+        componentDidMount:function(){
+            // 这个组件的DOM
+            if(this.isMounted){
+                console.log(ReactDOM.findDOMNode(this));
+            }
         }
     }
 );
