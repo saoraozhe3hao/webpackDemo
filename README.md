@@ -1,5 +1,5 @@
 ######
-CommonJS 模块 + webpack 
+CommonJS 模块 + webpack + react
 ########
 webpack的bundle（打包）功能支持CommonJS模块 和 AMD 模块，也可以配合Bable将ES6模块转成CommonJS 模块，再bundle。本例中是CommonJS模块
 ######
