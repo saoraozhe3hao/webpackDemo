@@ -84,7 +84,8 @@ module.exports = {
             test: /\.(js|jsx)$/,
             // 排除目标
             exclude: /(node_modules)/,
-            // 用babel-loader 编译 jsx，问号后面为参数
+            // 用babel-loader 编译 jsx，问号后面为参数。
+            //es2015插件包含了babel-plugin-transform-es2015-modules-commonjs，会把ES6模块转成CommonJS模块
             loader: 'babel?presets[]=react,presets[]=es2015'
         }, {
             test: /\.(png|jpg|jpeg|gif|webp|svg)$/,
