@@ -2,9 +2,9 @@
 
 let path = require('path'),
     fs = require('fs'),
-    stat = fs.stat,
     webpack = require('webpack'),
     ExtractTextPlugin = require("extract-text-webpack-plugin"),
+    HtmlWebpackPlugin = require("html-webpack-plugin"),
     copy = require('./webpack/copy');
 
 // 获取命令参数，命令写在package.json中
@@ -37,12 +37,9 @@ module.exports = {
     output: {
         // 输出目录
         path: dist,
-        // 公共资源路径
-        publicPath: 'http://localhost:63342/webpackDemo/webpack-dist/',
-        // 输出文件名
-        filename: '[name].js',
-        sourceMapFilename: '[file].map',
-        pathinfo: true
+        //publicPath: '', 文件引用前缀
+        // 输出文件名，[name]与入口文件同名
+        filename: '[name]-[hash].js'
     },
 
     // 路径处理配置
@@ -102,9 +99,16 @@ module.exports = {
 
     // 额外插件
     plugins: [
-        // 定义插件 loader 配置中使用
+        // CSS提取 插件
         new ExtractTextPlugin('[name].css', {
             allChunks: true
+        }),
+        // index.html生成 插件
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            //指定文件名
+            filename: 'index-[hash].html'
+            //inject: 'body' // js标签插入位置
         })
     ],
 
